@@ -23,7 +23,7 @@ def page(path,title,desc,body,cls=''):
 <link rel="stylesheet" href="/assets/site.css"><!-- LOGO/FAVICON: placeholder mark, replace with final logo -->
 </head><body class="{cls}"><a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap nav"><a class="logo" href="/">{LOGO} North Peak Recovery</a>
-<nav aria-label="Main"><ul>{navh}<li><a class="lenders" href="/loan-recovery/">For Lenders</a></li></ul></nav></div></header>
+<nav aria-label="Main"><ul>{navh}</ul></nav></div></header>
 <main id="main">{body}</main>
 <footer class="site"><div class="wrap grid g3">
 <div><strong>North Peak Recovery</strong><br>Helping former owners find surplus funds after a foreclosure or tax sale, nationwide.<br>{PHONE}<br>{ADDRESS}</div>
