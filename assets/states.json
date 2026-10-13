@@ -1,0 +1,317 @@
+[
+ {
+  "abbr": "AL",
+  "name": "Alabama",
+  "slug": "alabama",
+  "note": null
+ },
+ {
+  "abbr": "AK",
+  "name": "Alaska",
+  "slug": "alaska",
+  "note": null
+ },
+ {
+  "abbr": "AZ",
+  "name": "Arizona",
+  "slug": "arizona",
+  "note": null
+ },
+ {
+  "abbr": "AR",
+  "name": "Arkansas",
+  "slug": "arkansas",
+  "note": null
+ },
+ {
+  "abbr": "CA",
+  "name": "California",
+  "slug": "california",
+  "note": null
+ },
+ {
+  "abbr": "CO",
+  "name": "Colorado",
+  "slug": "colorado",
+  "note": {
+   "text": "Colorado (HB16-1090) voids finder's-fee agreements while the public trustee holds the funds and during the first two years the State Treasurer holds them, and caps fees after that. Any agreement must disclose that the public trustee is obligated to pay the funds out whether or not a finder is used.",
+   "source": "https://leg.colorado.gov/bills/hb16-1090"
+  }
+ },
+ {
+  "abbr": "CT",
+  "name": "Connecticut",
+  "slug": "connecticut",
+  "note": null
+ },
+ {
+  "abbr": "DE",
+  "name": "Delaware",
+  "slug": "delaware",
+  "note": null
+ },
+ {
+  "abbr": "DC",
+  "name": "District of Columbia",
+  "slug": "district-of-columbia",
+  "note": null
+ },
+ {
+  "abbr": "FL",
+  "name": "Florida",
+  "slug": "florida",
+  "note": {
+   "text": "Florida law (Fla. Stat. \u00a745.033) limits what an assignee of foreclosure surplus can be paid to 12% of the surplus and requires certain disclosures, including that the owner does not need an attorney or other representative to recover surplus funds.",
+   "source": "https://flsenate.gov/Laws/Statutes/2026/45.033"
+  }
+ },
+ {
+  "abbr": "GA",
+  "name": "Georgia",
+  "slug": "georgia",
+  "note": null
+ },
+ {
+  "abbr": "HI",
+  "name": "Hawaii",
+  "slug": "hawaii",
+  "note": null
+ },
+ {
+  "abbr": "ID",
+  "name": "Idaho",
+  "slug": "idaho",
+  "note": null
+ },
+ {
+  "abbr": "IL",
+  "name": "Illinois",
+  "slug": "illinois",
+  "note": null
+ },
+ {
+  "abbr": "IN",
+  "name": "Indiana",
+  "slug": "indiana",
+  "note": null
+ },
+ {
+  "abbr": "IA",
+  "name": "Iowa",
+  "slug": "iowa",
+  "note": null
+ },
+ {
+  "abbr": "KS",
+  "name": "Kansas",
+  "slug": "kansas",
+  "note": null
+ },
+ {
+  "abbr": "KY",
+  "name": "Kentucky",
+  "slug": "kentucky",
+  "note": null
+ },
+ {
+  "abbr": "LA",
+  "name": "Louisiana",
+  "slug": "louisiana",
+  "note": null
+ },
+ {
+  "abbr": "ME",
+  "name": "Maine",
+  "slug": "maine",
+  "note": null
+ },
+ {
+  "abbr": "MD",
+  "name": "Maryland",
+  "slug": "maryland",
+  "note": null
+ },
+ {
+  "abbr": "MA",
+  "name": "Massachusetts",
+  "slug": "massachusetts",
+  "note": null
+ },
+ {
+  "abbr": "MI",
+  "name": "Michigan",
+  "slug": "michigan",
+  "note": null
+ },
+ {
+  "abbr": "MN",
+  "name": "Minnesota",
+  "slug": "minnesota",
+  "note": null
+ },
+ {
+  "abbr": "MS",
+  "name": "Mississippi",
+  "slug": "mississippi",
+  "note": null
+ },
+ {
+  "abbr": "MO",
+  "name": "Missouri",
+  "slug": "missouri",
+  "note": null
+ },
+ {
+  "abbr": "MT",
+  "name": "Montana",
+  "slug": "montana",
+  "note": null
+ },
+ {
+  "abbr": "NE",
+  "name": "Nebraska",
+  "slug": "nebraska",
+  "note": null
+ },
+ {
+  "abbr": "NV",
+  "name": "Nevada",
+  "slug": "nevada",
+  "note": null
+ },
+ {
+  "abbr": "NH",
+  "name": "New Hampshire",
+  "slug": "new-hampshire",
+  "note": null
+ },
+ {
+  "abbr": "NJ",
+  "name": "New Jersey",
+  "slug": "new-jersey",
+  "note": null
+ },
+ {
+  "abbr": "NM",
+  "name": "New Mexico",
+  "slug": "new-mexico",
+  "note": null
+ },
+ {
+  "abbr": "NY",
+  "name": "New York",
+  "slug": "new-york",
+  "note": null
+ },
+ {
+  "abbr": "NC",
+  "name": "North Carolina",
+  "slug": "north-carolina",
+  "note": {
+   "text": "North Carolina (G.S. 116B-78) limits fees on many recovery agreements and requires property finders to register each year with the State Treasurer.",
+   "source": "https://ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_116B/GS_116B-78.html"
+  }
+ },
+ {
+  "abbr": "ND",
+  "name": "North Dakota",
+  "slug": "north-dakota",
+  "note": null
+ },
+ {
+  "abbr": "OH",
+  "name": "Ohio",
+  "slug": "ohio",
+  "note": null
+ },
+ {
+  "abbr": "OK",
+  "name": "Oklahoma",
+  "slug": "oklahoma",
+  "note": null
+ },
+ {
+  "abbr": "OR",
+  "name": "Oregon",
+  "slug": "oregon",
+  "note": null
+ },
+ {
+  "abbr": "PA",
+  "name": "Pennsylvania",
+  "slug": "pennsylvania",
+  "note": null
+ },
+ {
+  "abbr": "RI",
+  "name": "Rhode Island",
+  "slug": "rhode-island",
+  "note": null
+ },
+ {
+  "abbr": "SC",
+  "name": "South Carolina",
+  "slug": "south-carolina",
+  "note": null
+ },
+ {
+  "abbr": "SD",
+  "name": "South Dakota",
+  "slug": "south-dakota",
+  "note": null
+ },
+ {
+  "abbr": "TN",
+  "name": "Tennessee",
+  "slug": "tennessee",
+  "note": null
+ },
+ {
+  "abbr": "TX",
+  "name": "Texas",
+  "slug": "texas",
+  "note": null
+ },
+ {
+  "abbr": "UT",
+  "name": "Utah",
+  "slug": "utah",
+  "note": null
+ },
+ {
+  "abbr": "VT",
+  "name": "Vermont",
+  "slug": "vermont",
+  "note": null
+ },
+ {
+  "abbr": "VA",
+  "name": "Virginia",
+  "slug": "virginia",
+  "note": null
+ },
+ {
+  "abbr": "WA",
+  "name": "Washington",
+  "slug": "washington",
+  "note": null
+ },
+ {
+  "abbr": "WV",
+  "name": "West Virginia",
+  "slug": "west-virginia",
+  "note": null
+ },
+ {
+  "abbr": "WI",
+  "name": "Wisconsin",
+  "slug": "wisconsin",
+  "note": null
+ },
+ {
+  "abbr": "WY",
+  "name": "Wyoming",
+  "slug": "wyoming",
+  "note": null
+ }
+]

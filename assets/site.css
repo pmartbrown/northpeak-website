@@ -1,0 +1,49 @@
+/* North Peak Recovery: shared styles. Mobile-first, WCAG AA contrast. */
+:root{--ink:#14213d;--muted:#46536b;--brand:#1f6f5c;--brand-dk:#164f42;--sun:#f2b544;--bg:#f7faf8;--card:#fff;--line:#d8e2dc;--focus:#b35c00;--r:14px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand-dk)}a:hover{color:var(--ink)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:#fff;padding:.5rem 1rem;z-index:99}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0;flex-wrap:wrap}
+.logo{font-weight:800;font-size:1.2rem;color:var(--ink);text-decoration:none;display:flex;gap:.5rem;align-items:center}
+.logo svg{width:30px;height:30px}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1rem;font-size:.95rem}
+.nav ul a{text-decoration:none;color:var(--ink);padding:.35rem 0;display:inline-block}
+.nav ul a.lenders{border:1.5px solid var(--ink);border-radius:999px;padding:.3rem .8rem}
+.btn{display:inline-block;background:var(--brand);color:#fff;border:0;border-radius:999px;padding:.8rem 1.4rem;font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer;min-height:44px}
+.btn:hover{background:var(--brand-dk);color:#fff}.btn.ghost{background:transparent;color:var(--brand-dk);border:2px solid var(--brand)}
+.hero{background:linear-gradient(180deg,#e7f3ee,#f7faf8);padding:3rem 0 2rem}
+.hero h1{font-size:clamp(1.9rem,5vw,3rem);line-height:1.15;margin:.2rem 0 1rem}
+.lead{font-size:1.15rem;color:var(--muted);max-width:40rem}
+.kicker{text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;font-weight:700;color:var(--brand-dk)}
+section{padding:2.5rem 0}h2{font-size:clamp(1.5rem,3.5vw,2rem);line-height:1.2;margin:0 0 1rem}
+.grid{display:grid;gap:1rem}@media(min-width:760px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.25rem}
+.card h3{margin:.2rem 0 .5rem;font-size:1.1rem}
+.step{font-weight:800;color:var(--brand);font-size:1.4rem}
+.example{display:grid;gap:.5rem;max-width:26rem}.example div{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:.35rem 0}.example .tot{font-weight:800;color:var(--brand-dk);border:0}
+.map-wrap{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1rem}
+.usmap{width:100%;height:auto;display:block}
+.usmap a path,.usmap a circle{fill:#bcd9cc;stroke:#fff;stroke-width:1;transition:fill .15s}
+.usmap a:hover path,.usmap a:focus path,.usmap a:hover circle,.usmap a:focus circle{fill:var(--brand)}
+.usmap a:focus{outline:none}.usmap a:focus path,.usmap a:focus circle{stroke:var(--focus);stroke-width:2.5}
+label{display:block;font-weight:600;margin:.8rem 0 .25rem}
+input,select,textarea{width:100%;font:inherit;padding:.65rem .75rem;border:1.5px solid #8a99a8;border-radius:10px;background:#fff;color:var(--ink);min-height:44px}
+fieldset{border:0;padding:0;margin:.8rem 0 0}legend{font-weight:600}
+.radios label,.check label{display:flex;gap:.5rem;align-items:flex-start;font-weight:400;margin:.3rem 0}
+.radios input,.check input{width:auto;min-height:auto;margin-top:.35rem}
+.small{font-size:.88rem;color:var(--muted)}
+dialog{border:0;border-radius:var(--r);padding:0;width:min(560px,94vw);max-height:92vh;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+dialog::backdrop{background:rgba(20,33,61,.55)}
+.dlg{padding:1.5rem}.dlg h2{font-size:1.4rem;padding-right:2rem}
+.x{position:absolute;right:.6rem;top:.6rem;background:none;border:0;font-size:1.8rem;line-height:1;cursor:pointer;min-width:44px;min-height:44px;color:var(--ink)}
+.thanks{background:#e7f3ee;border-radius:10px;padding:1rem}
+.ph{background:#fff4d6;border:1px dashed #b98500;padding:0 .3rem;border-radius:4px}
+details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0}summary{font-weight:700;cursor:pointer}
+.lender-band{background:#eef1f6}.lender .hero{background:linear-gradient(180deg,#e6eaf2,#f4f6fa)}
+footer.site{background:var(--ink);color:#e6ecf5;padding:2rem 0;margin-top:2rem;font-size:.92rem}footer.site a{color:#fff}
+.statelist{columns:2;padding-left:1.1rem}@media(min-width:760px){.statelist{columns:4}}
+.err{color:#a1260d;font-weight:600}
