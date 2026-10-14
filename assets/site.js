@@ -1,7 +1,7 @@
 /* North Peak Recovery: shared JS (forms + map modal). */
 var NP_CONFIG={
   API_BASE:'https://api.txfhub.com',           // same backend pattern as RQF
-  SUBMIT_PATH:'/api/submissions',              // PLACEHOLDER: confirm the endpoint accepts source=northpeak
+  SUBMIT_PATH:'/api/submissions',              
   SOURCE:'northpeak',
   LIVE_SUBMIT:false                            // keep false until the endpoint is confirmed; then set true
 };
@@ -21,7 +21,7 @@ function npWire(form){
       var t=document.createElement('div');t.className='thanks';t.setAttribute('role','status');t.tabIndex=-1;
       t.innerHTML='<h3>Thank you. We\u2019ve got it.</h3><p>We\u2019ll look at public records and reach out the way you asked, usually within one business day. There\u2019s no cost and no obligation, and you can still choose to file on your own.</p>';
       form.replaceWith(t);t.focus();
-    }).catch(function(){btn.disabled=false;btn.textContent='Check for my funds';if(err)err.textContent='Something went wrong sending this. Please try again or call us.'});
+    }).catch(function(){btn.disabled=false;btn.textContent='Check for my funds';if(err)err.textContent='Something went wrong sending this. Please try again.'});
   });
 }
 document.querySelectorAll('form.lead').forEach(npWire);

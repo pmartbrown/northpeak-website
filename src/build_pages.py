@@ -8,8 +8,6 @@ BASE=os.environ.get('BASE','').rstrip('/')  # e.g. BASE=/northpeak-website for G
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATES=json.load(open(os.path.join(ROOT,'assets/states.json')))
 PATHS=json.load(open(os.path.join(ROOT,'src/us-paths.json')))
-PH=lambda t:f'<span class="ph">[{t}]</span>'
-PHONE=PH('PHONE: Paul to provide'); ADDRESS=PH('MAILING ADDRESS: Paul to provide'); EMAIL=PH('EMAIL: e.g. hello@northpeakrecovery.com')
 SITE='https://northpeakrecovery.com'
 LOGO='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 27 12 9l5 8 4-6 9 16z" fill="#1f6f5c"/><circle cx="25" cy="7" r="3.5" fill="#f2b544"/></svg>'
 
@@ -20,13 +18,13 @@ def page(path,title,desc,body,cls=''):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{SITE}{path}"><meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}">
-<link rel="stylesheet" href="/assets/site.css"><!-- LOGO/FAVICON: placeholder mark, replace with final logo -->
+<link rel="stylesheet" href="/assets/site.css">
 </head><body class="{cls}"><a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap nav"><a class="logo" href="/">{LOGO} North Peak Recovery</a>
 <nav aria-label="Main"><ul>{navh}</ul></nav></div></header>
 <main id="main">{body}</main>
 <footer class="site"><div class="wrap grid g3">
-<div><strong>North Peak Recovery</strong><br>Helping former owners find surplus funds after a foreclosure or tax sale, nationwide.<br>{PHONE}<br>{ADDRESS}</div>
+<div><strong>North Peak Recovery</strong><br>Helping former owners find surplus funds after a foreclosure or tax sale, nationwide.</div>
 <div><a href="/check-my-funds/">Check my funds</a><br><a href="/states/">State guides</a><br><a href="/beware-of-scams/">How to avoid scams</a><br><a href="/loan-recovery/">For private lenders</a></div>
 <div><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/disclosures/">Disclosures</a><p class="small" style="color:#cfd8e6">North Peak Recovery is not a law firm and is not a government agency. Legal work is performed by independent licensed attorneys. You can always file a claim yourself, at no cost.</p></div>
 </div></footer><script src="/assets/site.js"></script></body></html>'''
@@ -76,7 +74,7 @@ def how_cards():
 EXAMPLE='''<div class="card example" aria-label="Worked example"><div><span>Home sold at auction for</span><span>$285,000</span></div><div><span>Mortgage and costs owed</span><span>− $200,000</span></div><div><span>Other liens paid</span><span>− $10,000</span></div><div class="tot"><span>Surplus that may belong to the former owner</span><span>$75,000</span></div><p class="small">Illustration only. The real amount is set by the court or county record after valid liens and costs.</p></div>'''
 TRUST='''<div class="grid g4">
 <div class="card"><h3>No upfront fees</h3><p>Checking is free. You never pay us out of pocket.</p></div>
-<div class="card"><h3>Attorney partners</h3><p>Independent licensed attorneys handle legal filings where your state requires it. '''+PH('Attorney partner names: Paul to provide')+'''</p></div>
+<div class="card"><h3>Attorney partners</h3><p>Independent licensed attorneys handle legal filings where your state requires it.</p></div>
 <div class="card"><h3>No SSN to check</h3><p>We will never ask for your Social Security number just to see if funds exist.</p></div>
 <div class="card"><h3>You can file yourself</h3><p>Honestly: in most places you can claim surplus funds on your own for free. We’ll even tell you where to start.</p></div></div>'''
 FAQS=[('What are surplus funds?','When a home sells at a foreclosure or tax sale for more than what was owed, the extra money (the surplus, also called overage or excess proceeds) is usually owed to the former owner or other people with a legal interest.'),
@@ -155,7 +153,7 @@ for s in STATES:
 simple('/about/','About | North Peak Recovery','Who we are and why we do this work.','About North Peak Recovery',
  f'''<div class="grid g2"><div><p>Losing a home is hard. Finding out that some of its value may still be yours can be a real bright spot. North Peak Recovery exists to help people find that money and get it back the right way: patiently, honestly, and with licensed attorneys where the law requires.</p>
 <h2>What we believe</h2><ul><li>You deserve the plain truth, including that you can often file yourself.</li><li>No pressure, no countdown timers, no upfront fees.</li><li>Follow every state’s rules, every time.</li></ul></div>
-<div class="card"><h3>Our team</h3><p>{PH('Team names, photos and short bios: Paul to provide')}</p><h3>Attorney partners</h3><p>{PH('Partner attorney names, firms and bar states: Paul to provide')}</p><h3>Company</h3><p>{PH('Legal entity name, state of formation')}<br>{ADDRESS}<br>{PHONE}</p></div></div>''')
+<div class="card"><h3>Our team</h3><p>Paul Brown, Co-Founder<br>Keefer Brown, Co-Founder</p></div></div>''')
 
 simple('/faq/','FAQ | North Peak Recovery','Answers to common questions about surplus funds recovery.','Frequently asked questions',faq_html()+'<p style="margin-top:1rem"><a class="btn" href="/check-my-funds/">Start a free check</a></p>')
 
@@ -174,8 +172,8 @@ f'''<div class="hero"><div class="wrap"><p class="kicker">For private &amp; hard
 <div class="card"><div class="step">2</div><h3>Strategy</h3><p>Options: workout, payoff negotiation, deed in lieu, foreclosure, or a judgment on guaranties.</p></div>
 <div class="card"><div class="step">3</div><h3>Attorney action</h3><p>Licensed attorneys in the property’s state handle notices, filings and enforcement.</p></div>
 <div class="card"><div class="step">4</div><h3>Resolution</h3><p>Recovery, reporting and close-out, with clear updates throughout.</p></div></div>
-<p class="small" style="margin-top:1rem">We work with lenders on business-purpose loans secured by investment real estate. We don’t contact consumers on behalf of creditors, and enforcement is handled by licensed attorneys. {PH('Counsel to confirm licensing and scope by state before launch')}</p></div></section>
-<section id="submit" class="lender-band"><div class="wrap grid g2"><div><h2>Submit a loan for review</h2><p>Confidential. We’ll respond within {PH('response time')}.</p></div>
+<p class="small" style="margin-top:1rem">We work with lenders on business-purpose loans secured by investment real estate. We don’t contact consumers on behalf of creditors, and enforcement is handled by licensed attorneys.</p></div></section>
+<section id="submit" class="lender-band"><div class="wrap grid g2"><div><h2>Submit a loan for review</h2><p>Confidential.</p></div>
 <form class="lead card" novalidate><input type="hidden" name="form" value="loan-recovery">
 <label for="l-n">Your name</label><input id="l-n" name="name" required autocomplete="name"><label for="l-co">Company / lending entity</label><input id="l-co" name="company">
 <label for="l-e">Email</label><input id="l-e" name="email" type="email" required autocomplete="email"><label for="l-p">Phone</label><input id="l-p" name="phone" type="tel" autocomplete="tel">
@@ -186,10 +184,10 @@ f'''<div class="hero"><div class="wrap"><p class="kicker">For private &amp; hard
 <div class="check"><label><input type="checkbox" name="consent" value="yes" required><span>I confirm this is a business-purpose loan and agree to be contacted about it.</span></label></div>
 <p class="err" aria-live="polite"></p><button class="btn" type="submit">Submit for review</button></form></div></section>''','lender')
 
-legal=lambda t:f'<p><strong>DRAFT: needs attorney review before launch.</strong></p>{t}'
-simple('/privacy/','Privacy Policy | North Peak Recovery','How we collect and use information.','Privacy Policy',legal(f'<p>We collect the information you submit (name, contact details, property details) to research and respond to your inquiry. We do not sell your personal information. We use service providers (e.g., hosting, CRM) to operate. Phone and text contact happens only with your consent; reply STOP to opt out. Contact: {EMAIL}. {PH("Full policy: analytics, retention, state privacy rights")}</p>'))
-simple('/terms/','Terms of Use | North Peak Recovery','Terms for using this website.','Terms of Use',legal(f'<p>This website provides general information, not legal advice. Using it does not create an attorney-client relationship or any agreement for services. Services are provided only under a separate signed written agreement. {PH("Full terms: governing law, limitations")}</p>'))
-simple('/disclosures/','Disclosures | North Peak Recovery','Important disclosures.','Disclosures',legal(f'''<ul><li>North Peak Recovery is not a law firm and is not affiliated with any court, county or government agency.</li><li>You can claim surplus funds yourself without hiring anyone, often at no cost.</li><li>Legal services are provided by independent licensed attorneys. {PH("Attorney names and states")}</li><li>Fees are set out in a written agreement before any filing, follow applicable state limits, and are paid only from a successful recovery.</li><li>Examples are illustrative. Results vary, and no outcome is guaranteed.</li><li>{PH("State-specific disclosures, e.g., Florida §45.033, Colorado: counsel to draft")}</li></ul>'''))
+legal=lambda t:t
+simple('/privacy/','Privacy Policy | North Peak Recovery','How we collect and use information.','Privacy Policy',legal(f'<p>We collect the information you submit (name, contact details, property details) to research and respond to your inquiry. We do not sell your personal information. We use service providers (e.g., hosting, CRM) to operate. Phone and text contact happens only with your consent; reply STOP to opt out.</p>'))
+simple('/terms/','Terms of Use | North Peak Recovery','Terms for using this website.','Terms of Use',legal(f'<p>This website provides general information, not legal advice. Using it does not create an attorney-client relationship or any agreement for services. Services are provided only under a separate signed written agreement.</p>'))
+simple('/disclosures/','Disclosures | North Peak Recovery','Important disclosures.','Disclosures',legal(f'''<ul><li>North Peak Recovery is not a law firm and is not affiliated with any court, county or government agency.</li><li>You can claim surplus funds yourself without hiring anyone, often at no cost.</li><li>Legal services are provided by independent licensed attorneys.</li><li>Fees are set out in a written agreement before any filing, follow applicable state limits, and are paid only from a successful recovery.</li><li>Examples are illustrative. Results vary, and no outcome is guaranteed.</li></ul>'''))
 page('/404.html','Page not found | North Peak Recovery','Page not found.','<div class="hero"><div class="wrap"><h1>We couldn’t find that page</h1><p class="lead">Let’s get you back on track.</p><a class="btn" href="/">Go home</a> <a class="btn ghost" href="/states/">State guides</a></div></div>')
 
 # sitemap + robots

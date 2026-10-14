@@ -41,7 +41,6 @@ dialog::backdrop{background:rgba(20,33,61,.55)}
 .dlg{padding:1.5rem}.dlg h2{font-size:1.4rem;padding-right:2rem}
 .x{position:absolute;right:.6rem;top:.6rem;background:none;border:0;font-size:1.8rem;line-height:1;cursor:pointer;min-width:44px;min-height:44px;color:var(--ink)}
 .thanks{background:#e7f3ee;border-radius:10px;padding:1rem}
-.ph{background:#fff4d6;border:1px dashed #b98500;padding:0 .3rem;border-radius:4px}
 details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0}summary{font-weight:700;cursor:pointer}
 .lender-band{background:#eef1f6}.lender .hero{background:linear-gradient(180deg,#e6eaf2,#f4f6fa)}
 footer.site{background:var(--ink);color:#e6ecf5;padding:2rem 0;margin-top:2rem;font-size:.92rem}footer.site a{color:#fff}
