@@ -18,13 +18,15 @@ LD=json.dumps({"@context":"https://schema.org","@graph":[
  {"@type":"WebSite","@id":SITE+"/#website","name":"North Peak Recovery","url":SITE+"/","publisher":{"@id":SITE+"/#org"},"inLanguage":"en-US"}]},separators=(',',':'))
 LOGO='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 27 12 9l5 8 4-6 9 16z" fill="#1f6f5c"/><circle cx="25" cy="7" r="3.5" fill="#f2b544"/></svg>'
 
-def page(path,title,desc,body,cls=''):
+def page(path,title,desc,body,cls='',canonical=True,robots=None):
     nav=[('/how-it-works/','How it works'),('/what-are-surplus-funds/','Surplus funds'),('/states/','States'),('/faq/','FAQ'),('/about/','About'),('/beware-of-scams/','Avoid scams')]
     navh=''.join(f'<li><a href="{h}">{t}</a></li>' for h,t in nav)
+    robots_tag=f'<meta name="robots" content="{html.escape(robots)}">' if robots else ''
+    canon_tag=f'<link rel="canonical" href="{SITE}{path}">' if canonical else ''
     doc=f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}">
-<link rel="canonical" href="{SITE}{path}"><meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}">
+{canon_tag}{robots_tag}<meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}">
 <link rel="stylesheet" href="/assets/site.css">
 <script type="application/ld+json">{LD}</script>
 </head><body class="{cls}"><a class="skip" href="#main">Skip to content</a>
@@ -196,7 +198,7 @@ legal=lambda t:t
 simple('/privacy/','Privacy Policy | North Peak Recovery','How we collect and use information.','Privacy Policy',legal(f'<p>We collect the information you submit (name, contact details, property details) to research and respond to your inquiry. We do not sell your personal information. We use service providers (e.g., hosting, CRM) to operate. Phone and text contact happens only with your consent; reply STOP to opt out.</p>'))
 simple('/terms/','Terms of Use | North Peak Recovery','Terms for using this website.','Terms of Use',legal(f'<p>This website provides general information, not legal advice. Using it does not create an attorney-client relationship or any agreement for services. Services are provided only under a separate signed written agreement.</p>'))
 simple('/disclosures/','Disclosures | North Peak Recovery','Important disclosures.','Disclosures',legal(f'''<ul><li>North Peak Recovery is not a law firm and is not affiliated with any court, county or government agency.</li><li>You can claim surplus funds yourself without hiring anyone, often at no cost.</li><li>Legal services are provided by independent licensed attorneys.</li><li>Fees are set out in a written agreement before any filing, follow applicable state limits, and are paid only from a successful recovery.</li><li>Examples are illustrative. Results vary, and no outcome is guaranteed.</li></ul>'''))
-page('/404.html','Page not found | North Peak Recovery','Page not found.','<div class="hero"><div class="wrap"><h1>We couldn’t find that page</h1><p class="lead">Let’s get you back on track.</p><a class="btn" href="/">Go home</a> <a class="btn ghost" href="/states/">State guides</a></div></div>')
+page('/404.html','Page not found | North Peak Recovery','Page not found.','<div class="hero"><div class="wrap"><h1>We couldn’t find that page</h1><p class="lead">Let’s get you back on track.</p><a class="btn" href="/">Go home</a> <a class="btn ghost" href="/states/">State guides</a></div></div>',canonical=False,robots='noindex')
 
 # sitemap + robots
 urls=['/','/how-it-works/','/what-are-surplus-funds/','/states/','/about/','/faq/','/check-my-funds/','/beware-of-scams/','/loan-recovery/','/privacy/','/terms/','/disclosures/']+[f'/states/{s["slug"]}/' for s in STATES]
