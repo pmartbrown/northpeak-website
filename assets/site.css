@@ -46,3 +46,5 @@ details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:
 footer.site{background:var(--ink);color:#e6ecf5;padding:2rem 0;margin-top:2rem;font-size:.92rem}footer.site a{color:#fff}
 .statelist{columns:2;padding-left:1.1rem}@media(min-width:760px){.statelist{columns:4}}
 .err{color:#a1260d;font-weight:600}
+
+.hp{position:absolute;left:-9999px;height:1px;width:1px;overflow:hidden}

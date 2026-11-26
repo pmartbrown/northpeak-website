@@ -200,8 +200,10 @@ simple('/terms/','Terms of Use | North Peak Recovery','Terms for using this webs
 simple('/disclosures/','Disclosures | North Peak Recovery','Important disclosures.','Disclosures',legal(f'''<ul><li>North Peak Recovery is not a law firm and is not affiliated with any court, county or government agency.</li><li>You can claim surplus funds yourself without hiring anyone, often at no cost.</li><li>Legal services are provided by independent licensed attorneys.</li><li>Fees are set out in a written agreement before any filing, follow applicable state limits, and are paid only from a successful recovery.</li><li>Examples are illustrative. Results vary, and no outcome is guaranteed.</li></ul>'''))
 page('/404.html','Page not found | North Peak Recovery','Page not found.','<div class="hero"><div class="wrap"><h1>We couldn’t find that page</h1><p class="lead">Let’s get you back on track.</p><a class="btn" href="/">Go home</a> <a class="btn ghost" href="/states/">State guides</a></div></div>',canonical=False,robots='noindex')
 
+# /surplus-funds/ and /what-happens-at-the-sale/ are hand-authored static pages.
+# Include them in the sitemap and llms.txt, but do not overwrite those HTML files from this script.
 # sitemap + robots
-urls=['/','/how-it-works/','/what-are-surplus-funds/','/states/','/about/','/faq/','/check-my-funds/','/beware-of-scams/','/loan-recovery/','/privacy/','/terms/','/disclosures/']+[f'/states/{s["slug"]}/' for s in STATES]
+urls=['/','/how-it-works/','/what-are-surplus-funds/','/states/','/about/','/faq/','/check-my-funds/','/surplus-funds/','/what-happens-at-the-sale/','/beware-of-scams/','/loan-recovery/','/privacy/','/terms/','/disclosures/']+[f'/states/{s["slug"]}/' for s in STATES]
 open(os.path.join(ROOT,'sitemap.xml'),'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>{SITE}{u}</loc></url>' for u in urls)+'</urlset>\n')
 BOTS=['GPTBot','OAI-SearchBot','ChatGPT-User','ClaudeBot','Claude-SearchBot','Claude-User','PerplexityBot','Perplexity-User','Google-Extended','Googlebot','Applebot','Applebot-Extended','Bingbot','Amazonbot','Amzn-SearchBot','DuckAssistBot','meta-externalagent','CCBot']
 open(os.path.join(ROOT,'robots.txt'),'w').write('User-agent: *\nAllow: /\n\n'+''.join(f'User-agent: {b}\nAllow: /\n\n' for b in BOTS)+f'Sitemap: {SITE}/sitemap.xml\n')
@@ -211,6 +213,8 @@ PAGES=[('/how-it-works/','How it works','Our simple four-step process for recove
 ('/what-are-surplus-funds/','What are surplus funds?','A plain-English guide to foreclosure and tax sale surplus funds, overages and excess proceeds.'),
 ('/states/','State guides','Surplus funds guides for all 50 states and DC.'),
 ('/check-my-funds/','Check my funds','A free, no-obligation check for foreclosure or tax sale surplus funds.'),
+('/surplus-funds/','After a sale','Leftover funds after a foreclosure or tax sale, and a free consultation form.'),
+('/what-happens-at-the-sale/','Before a sale','What leftover money can mean if a foreclosure or tax sale is still coming up, and a free consultation form.'),
 ('/faq/','FAQ','Answers to common questions about surplus funds recovery.'),
 ('/beware-of-scams/','How to avoid surplus funds scams','How to verify any surplus funds offer, including ours.'),
 ('/about/','About','Who we are and why we do this work.'),

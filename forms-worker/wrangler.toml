@@ -1,0 +1,24 @@
+name = "northpeak-forms"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+# workers.dev stays on because orange-to-orange (Cloudflare in front of Render)
+# does not honor zone Worker routes on the apex/www hostnames. site.js posts here.
+workers_dev = true
+preview_urls = false
+
+routes = [
+  { pattern = "northpeakrecovery.com/api/submissions*", zone_name = "northpeakrecovery.com" },
+  { pattern = "www.northpeakrecovery.com/api/submissions*", zone_name = "northpeakrecovery.com" }
+]
+
+# Destination must be a verified Email Routing address on this Cloudflare account.
+# paul@northpeakrecovery.com is not verified. Do not enable Email Routing on the
+# northpeakrecovery.com apex (Google Workspace MX must stay in place).
+# FROM must be a domain already authorized for send_email (summit-rei.com).
+send_email = [
+  { name = "SEND_EMAIL", destination_address = "paul@realquickfunds.com" }
+]
+
+[vars]
+FORM_INBOX = "paul@realquickfunds.com"
+FROM_ADDR = "forms@summit-rei.com"
