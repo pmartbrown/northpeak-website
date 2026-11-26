@@ -3,12 +3,19 @@
 Run from repo root:  python3 src/build_pages.py
 Inputs: assets/states.json, src/us-paths.json (Wikimedia Commons 'Blank US Map (states only).svg', public domain).
 """
-import json, os, html
+import json, os, html, glob
 BASE=os.environ.get('BASE','').rstrip('/')  # e.g. BASE=/northpeak-website for GitHub Pages preview
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATES=json.load(open(os.path.join(ROOT,'assets/states.json')))
 PATHS=json.load(open(os.path.join(ROOT,'src/us-paths.json')))
 SITE='https://northpeakrecovery.com'
+
+LD=json.dumps({"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":SITE+"/#org","name":"North Peak Recovery","url":SITE+"/",
+  "description":"Helping former owners find surplus funds after a foreclosure or tax sale, nationwide.",
+  "address":{"@type":"PostalAddress","streetAddress":"1873 West Traverse Parkway, Suite E 521","addressLocality":"Lehi","addressRegion":"UT","postalCode":"84043","addressCountry":"US"},
+  "areaServed":"US"},
+ {"@type":"WebSite","@id":SITE+"/#website","name":"North Peak Recovery","url":SITE+"/","publisher":{"@id":SITE+"/#org"},"inLanguage":"en-US"}]},separators=(',',':'))
 LOGO='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 27 12 9l5 8 4-6 9 16z" fill="#1f6f5c"/><circle cx="25" cy="7" r="3.5" fill="#f2b544"/></svg>'
 
 def page(path,title,desc,body,cls=''):
@@ -19,6 +26,7 @@ def page(path,title,desc,body,cls=''):
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{SITE}{path}"><meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}">
 <link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{LD}</script>
 </head><body class="{cls}"><a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap nav"><a class="logo" href="/">{LOGO} North Peak Recovery</a>
 <nav aria-label="Main"><ul>{navh}</ul></nav></div></header>
@@ -193,5 +201,24 @@ page('/404.html','Page not found | North Peak Recovery','Page not found.','<div 
 # sitemap + robots
 urls=['/','/how-it-works/','/what-are-surplus-funds/','/states/','/about/','/faq/','/check-my-funds/','/beware-of-scams/','/loan-recovery/','/privacy/','/terms/','/disclosures/']+[f'/states/{s["slug"]}/' for s in STATES]
 open(os.path.join(ROOT,'sitemap.xml'),'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>{SITE}{u}</loc></url>' for u in urls)+'</urlset>\n')
-open(os.path.join(ROOT,'robots.txt'),'w').write(f'User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n')
+BOTS=['GPTBot','OAI-SearchBot','ChatGPT-User','ClaudeBot','Claude-SearchBot','Claude-User','PerplexityBot','Perplexity-User','Google-Extended','Googlebot','Applebot','Applebot-Extended','Bingbot','Amazonbot','Amzn-SearchBot','DuckAssistBot','meta-externalagent','CCBot']
+open(os.path.join(ROOT,'robots.txt'),'w').write('User-agent: *\nAllow: /\n\n'+''.join(f'User-agent: {b}\nAllow: /\n\n' for b in BOTS)+f'Sitemap: {SITE}/sitemap.xml\n')
+
+# llms.txt (plain summary for AI search tools; facts copied from the pages above)
+PAGES=[('/how-it-works/','How it works','Our simple four-step process for recovering foreclosure and tax sale surplus funds.'),
+('/what-are-surplus-funds/','What are surplus funds?','A plain-English guide to foreclosure and tax sale surplus funds, overages and excess proceeds.'),
+('/states/','State guides','Surplus funds guides for all 50 states and DC.'),
+('/check-my-funds/','Check my funds','A free, no-obligation check for foreclosure or tax sale surplus funds.'),
+('/faq/','FAQ','Answers to common questions about surplus funds recovery.'),
+('/beware-of-scams/','How to avoid surplus funds scams','How to verify any surplus funds offer, including ours.'),
+('/about/','About','Who we are and why we do this work.'),
+('/loan-recovery/','Private loan recovery for lenders','Attorney-led recovery for private money and hard money real estate lenders with non-performing loans.')]
+L=['# North Peak Recovery','','> If your home sold at a foreclosure or tax auction for more than you owed, money may be waiting for you. Free, no-pressure check, nationwide.','',
+'North Peak Recovery (northpeakrecovery.com) helps former owners find surplus funds after a foreclosure or tax sale, nationwide. At a foreclosure or tax sale, the home is sold to pay what was owed. If bidding goes higher than the debt, costs and other liens, the money left over, called surplus funds, overages or excess proceeds, usually belongs to the former owner (or heirs).','',
+'- A free look at public records.','- No upfront fees. If the claim succeeds, the fee comes out of the recovered funds at the rate in the written agreement. If it does not succeed, the owner owes nothing.','- North Peak Recovery never asks for a Social Security number to check.','- You can often file a claim yourself, at no cost, and we will say so when that is the case.','- Some states cap or restrict these fees. We follow the rules where the home was sold.','',
+'North Peak Recovery is not a law firm and is not a government agency. Legal work is performed by independent licensed attorneys. Co-founders: Paul Brown and Keefer Brown. Mailing address: 1873 West Traverse Parkway, Suite E 521, Lehi, Utah 84043.','','## Main pages','',f'- [Home]({SITE}/): Surplus funds after a foreclosure or tax sale.']
+L+=[f'- [{t}]({SITE}{u}): {d}' for u,t,d in PAGES]
+L+=['','## State guides','']+[f'- [{x["name"]} surplus funds recovery]({SITE}/states/{x["slug"]}/)' for x in STATES]
+L+=['','## Legal','',f'- [Privacy Policy]({SITE}/privacy/)',f'- [Terms of Use]({SITE}/terms/)',f'- [Disclosures]({SITE}/disclosures/)','',f'Sitemap: {SITE}/sitemap.xml','']
+open(os.path.join(ROOT,'llms.txt'),'w').write('\n'.join(L))
 print('built',len(urls),'urls')
